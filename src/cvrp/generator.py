@@ -82,9 +82,9 @@ def generate_medidrone(seed: int, n: int = 100, Q: int = 100,
     return inst
 
 
-def generate_tiny(n: int, seed: int, Q: int = 40) -> Instance:
+def generate_tiny(n: int, seed: int, Q: int = 60) -> Instance:
     """Tiny MediDrone-style instance (with Bosphorus penalty) for exact ground truth.
-    Q = 40 with demands in [1, 30] forces several routes."""
+    Q = 60 with demands in [1, 30] forces several routes (about 4 customers each)."""
     rng = np.random.default_rng(seed)
     coords = np.vstack([[SIZE / 2, SIZE / 2], rng.uniform(0, SIZE, size=(n, 2))])
     demand = np.concatenate([[0], rng.integers(1, 31, size=n)]).astype(np.int64)
