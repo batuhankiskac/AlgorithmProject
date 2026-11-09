@@ -1,0 +1,16 @@
+[project]
+name = "cvrp"
+version = "1.0.0"
+description = "CMP 3005 term project: CVRP with Clarke-Wright, GA (giant tour + Split) and Tabu Search"
+requires-python = ">=3.11"
+dependencies = ["numpy", "matplotlib", "scipy", "pandas"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

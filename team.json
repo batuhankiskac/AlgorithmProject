@@ -1,0 +1,5 @@
+{
+  "_comment": "Fill in the full student IDs of all team members. The MediDrone seed is the sum of the last four digits of each ID (each read as a 4-digit number). While student_ids is empty, fallback_seed is used.",
+  "student_ids": [],
+  "fallback_seed": 2026
+}
