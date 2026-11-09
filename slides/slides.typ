@@ -35,7 +35,7 @@
 
   Our team instance: seed #inst.extra.seed_calculation · $n = #inst.n$, $Q = #inst.Q$, $K = #inst.K$
   ],
-  image("../figures/medidrone_instance.png", height: 9.5cm))
+  image("../figures/medidrone_instance.png", width: 100%))
 ]
 
 #slide[Why is it hard? Two NP-hard problems in one][
@@ -105,7 +105,7 @@
   - Delta evaluation: $O(1)$ vs. $Theta(n)$
     - #calc.round(sc.rows.last().delta_vs_full.speedup, digits: 0)× faster at $n = #sc.rows.last().n$
   ],
-  image("../figures/scaling_loglog.png", height: 8.6cm))
+  image("../figures/scaling_loglog.png", width: 100%))
 ]
 
 #slide[Results (10 seeds, equal time budget)][
@@ -118,7 +118,7 @@
     }).flatten())
   #v(0.3em)
   #grid(columns: (1fr, 1fr), gutter: 10pt,
-    image("../figures/gaps_boxplot.png", height: 4.6cm),
+    image("../figures/gaps_boxplot.png", width: 100%),
     [#set text(12pt)
     - Tiny instances: both methods reach the DP optimum in all runs
     - Every reported solution passes the independent checker
@@ -131,16 +131,19 @@
 
 #slide[MediDrone plans and the Bosphorus][
   #grid(columns: (1.5fr, 1fr), gutter: 10pt,
-  image("../figures/bosphorus_effect.png", height: 8.8cm),
+  image("../figures/bosphorus_effect.png", width: 100%),
   [#set text(13pt)
   - With $P = 0$: #bos.P0.cross_routes routes cross the strait (#bos.P0.cross_arcs crossing arcs)
   - With $P = 150$: #bos.P150.cross_routes routes cross (#bos.P150.cross_arcs arcs)
-  - The penalty splits the fleet into European and Asian routes; the depot sits on the border, so the remaining crossings are mostly depot arcs
+  - Same structure in both: 9 Europe-only + 6 Asia-only routes, no mixed route
+  - Depot on the strait $=>$ every route that visits Europe crosses exactly twice
+  - Penalty $= 300 times$ #sym.hash European routes $>= 300 dot ceil(875\/100) = 2700$, and our plans attain this bound
+  - Euclidean length: #calc.round(bos.P0.euclid) vs. #calc.round(bos.P150.euclid)
   ])
 ]
 
 #slide[Parameter sensitivity][
-  #align(center, image("../figures/param_study.png", height: 9.8cm))
+  #align(center, image("../figures/param_study.png", width: 100%))
 ]
 
 #slide[Takeaways][

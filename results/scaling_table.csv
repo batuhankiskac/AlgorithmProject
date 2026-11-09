@@ -1,0 +1,5 @@
+quantity,slope,n=25,n=50,n=100,n=200,n=400,n=800
+GA: one generation,1.51,11.969 ms,23.003 ms,59.592 ms,163.532 ms,620.660 ms,2083.877 ms
+TS: one iteration,1.04,0.190 ms,0.374 ms,0.757 ms,1.520 ms,3.355 ms,6.901 ms
+Split (one decoding),1.05,0.012 ms,0.019 ms,0.044 ms,0.083 ms,0.183 ms,0.420 ms
+Clarke–Wright (total),2.2,0.090 ms,0.272 ms,1.296 ms,5.530 ms,28.644 ms,179.587 ms

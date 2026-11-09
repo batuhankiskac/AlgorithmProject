@@ -1,0 +1,7 @@
+instance,test,GA_median,TS_median,p_value,n_pairs,TS_better,GA_better,ties
+A-n32-k5,Mann-Whitney U (Wilcoxon rank-sum),784.0,784.0,1.0,,,,
+A-n45-k6,Mann-Whitney U (Wilcoxon rank-sum),944.0,944.0,1.0,,,,
+A-n60-k9,Mann-Whitney U (Wilcoxon rank-sum),1354.0,1354.0,1.0,,,,
+A-n80-k10,Mann-Whitney U (Wilcoxon rank-sum),1763.0,1766.0,0.0024522010464072845,,,,
+MediDrone,Mann-Whitney U (Wilcoxon rank-sum),14708.1674,14744.4722,6.386444750436982e-05,,,,
+"all (paired by instance, seed)",Wilcoxon signed-rank,0.0,0.0,0.0002487707859735839,50.0,1.0,18.0,31.0

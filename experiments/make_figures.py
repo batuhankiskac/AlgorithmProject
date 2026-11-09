@@ -32,7 +32,8 @@ def load_runs():
     # Reference value for instances without a BKS (MediDrone): best cost found by any run.
     ref = df.groupby("instance", observed=True)["cost"].min()
     df["ref"] = [b if not pd.isna(b) else ref[i] for i, b in zip(df["instance"], df["bks"])]
-    df["rel_pct"] = 100 * (df["cost"] - df["ref"]) / df["ref"]
+    df["rel_pct"] = (100 * (df["cost"] - df["ref"]) / df["ref"]).round(6)
+    df["gap_pct"] = df["gap_pct"].round(6)
     return df
 
 
@@ -108,7 +109,7 @@ def convergence(df, name):
     ax.set_yscale("symlog", linthresh=1.0)
     ax.set_title(f"Convergence on {name}")
     ax.legend()
-    fig.tight_layout(); fig.savefig(FIGURES / f"convergence_{name}.png", dpi=200); plt.close(fig)
+    fig.tight_layout(); fig.savefig(FIGURES / f"convergence_{name}.png", dpi=200, bbox_inches="tight"); plt.close(fig)
 
 
 def draw_routes(ax, inst, routes, title):
@@ -133,7 +134,7 @@ def route_figures(df):
         js = run_json(MEDIDRONE, algo, int(best.seed) if algo != "CW" else None)
         draw_routes(ax, inst, js["routes"], f"{algo}: cost {best.cost:.1f}, {int(best.routes)} routes,\n"
                                             f"{int(best.cross_routes)} routes / {int(best.cross_arcs)} arcs cross the Bosphorus")
-    fig.tight_layout(); fig.savefig(FIGURES / "routes_medidrone.png", dpi=200); plt.close(fig)
+    fig.tight_layout(); fig.savefig(FIGURES / "routes_medidrone.png", dpi=200, bbox_inches="tight"); plt.close(fig)
     # best overall MediDrone solution, large
     g = df[(df.instance == MEDIDRONE) & (df.algo != "CW")]
     best = g.loc[g.cost.idxmin()]
@@ -141,7 +142,7 @@ def route_figures(df):
     fig, ax = plt.subplots(figsize=(6.4, 6.4))
     draw_routes(ax, inst, js["routes"], f"Best MediDrone plan ({best.algo}, seed {int(best.seed)}): cost {best.cost:.1f}, "
                                         f"{int(best.routes)} routes, {int(best.cross_routes)} cross the strait")
-    fig.tight_layout(); fig.savefig(FIGURES / "routes_medidrone_best.png", dpi=200); plt.close(fig)
+    fig.tight_layout(); fig.savefig(FIGURES / "routes_medidrone_best.png", dpi=200, bbox_inches="tight"); plt.close(fig)
     # a benchmark too
     for name in ("A-n80-k10",):
         binst = load(name)
@@ -151,7 +152,7 @@ def route_figures(df):
         fig, ax = plt.subplots(figsize=(5, 5))
         draw_routes(ax, binst, js["routes"],
                     f"{name}: best {best.algo} solution, cost {best.cost:.0f} (BKS {binst.bks:.0f})")
-        fig.tight_layout(); fig.savefig(FIGURES / f"routes_{name}.png", dpi=200); plt.close(fig)
+        fig.tight_layout(); fig.savefig(FIGURES / f"routes_{name}.png", dpi=200, bbox_inches="tight"); plt.close(fig)
 
 
 def gap_boxplot(df):
@@ -170,7 +171,7 @@ def gap_boxplot(df):
     ax.set_ylabel("gap (%)  [MediDrone: to best found]")
     ax.set_yscale("symlog", linthresh=1.0)
     ax.legend(ncol=3, fontsize=8)
-    fig.tight_layout(); fig.savefig(FIGURES / "gaps_boxplot.png", dpi=200); plt.close(fig)
+    fig.tight_layout(); fig.savefig(FIGURES / "gaps_boxplot.png", dpi=200, bbox_inches="tight"); plt.close(fig)
 
 
 def scaling_figure():
@@ -192,7 +193,7 @@ def scaling_figure():
         table.append({"quantity": lab, "slope": round(s, 2), **{f"n={n}": f"{v*1e3:.3f} ms" for n, v in zip(ns, t)}})
     ax.set_xlabel("n (customers)"); ax.set_ylabel("time (s)")
     ax.legend(fontsize=8); ax.grid(True, which="both", alpha=0.25)
-    fig.tight_layout(); fig.savefig(FIGURES / "scaling_loglog.png", dpi=200); plt.close(fig)
+    fig.tight_layout(); fig.savefig(FIGURES / "scaling_loglog.png", dpi=200, bbox_inches="tight"); plt.close(fig)
     pd.DataFrame(table).to_csv(RESULTS / "scaling_table.csv", index=False)
 
 
@@ -219,7 +220,7 @@ def param_figures():
         if g["value"].min() > 0 and g["value"].max() / g["value"].min() > 20:
             ax.set_xscale("log")
         ax.legend(fontsize=7, loc="upper left")
-    fig.tight_layout(); fig.savefig(FIGURES / "param_study.png", dpi=200); plt.close(fig)
+    fig.tight_layout(); fig.savefig(FIGURES / "param_study.png", dpi=200, bbox_inches="tight"); plt.close(fig)
 
 
 def bosphorus_figure():
@@ -236,7 +237,7 @@ def bosphorus_figure():
         draw_routes(ax, inst, e["routes"], f"P = {e['penalty']:.0f}: {e['routes_n']} routes, "
                     f"{e['cross_routes']} routes / {e['cross_arcs']} arcs cross\n"
                     f"Euclidean length {e['euclid']:.0f}")
-    fig.tight_layout(); fig.savefig(FIGURES / "bosphorus_effect.png", dpi=200); plt.close(fig)
+    fig.tight_layout(); fig.savefig(FIGURES / "bosphorus_effect.png", dpi=200, bbox_inches="tight"); plt.close(fig)
 
 
 def main():

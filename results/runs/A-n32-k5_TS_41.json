@@ -1,0 +1,136 @@
+{
+ "row": {
+  "instance": "A-n32-k5",
+  "n": 31,
+  "algo": "TS",
+  "seed": 41,
+  "budget_s": 30.0,
+  "cost": 784.0,
+  "bks": 784.0,
+  "gap_pct": 0.0,
+  "runtime_s": 30.0001,
+  "time_to_best_s": 0.0629,
+  "iterations": 73396,
+  "routes": 5,
+  "K": 5,
+  "feasible": true,
+  "cross_arcs": 0,
+  "cross_routes": 0
+ },
+ "routes": [
+  [
+   24,
+   27
+  ],
+  [
+   30,
+   16,
+   1,
+   12
+  ],
+  [
+   26,
+   7,
+   13,
+   17,
+   19,
+   31,
+   21
+  ],
+  [
+   20,
+   5,
+   25,
+   10,
+   15,
+   22,
+   9,
+   8,
+   18,
+   29
+  ],
+  [
+   6,
+   2,
+   3,
+   23,
+   4,
+   11,
+   28,
+   14
+  ]
+ ],
+ "history": [
+  [
+   0.0003023340250365436,
+   842
+  ],
+  [
+   0.000853167031891644,
+   832
+  ],
+  [
+   0.03961566701764241,
+   821
+  ],
+  [
+   0.04025887500029057,
+   812
+  ],
+  [
+   0.04087683401303366,
+   805
+  ],
+  [
+   0.04148370900657028,
+   797
+  ],
+  [
+   0.04208145901793614,
+   792
+  ],
+  [
+   0.04258941701846197,
+   788
+  ],
+  [
+   0.043092167004942894,
+   786
+  ],
+  [
+   0.06287545902887359,
+   784
+  ]
+ ],
+ "extra": {
+  "params": {
+   "k_neighbours": 20,
+   "tenure_min": 5,
+   "tenure_max": 15,
+   "lambda_init": null,
+   "lambda_delta": 0.5,
+   "stall_iters": null,
+   "perturb_min_frac": 0.1,
+   "perturb_max_frac": 0.25,
+   "resync_every": 1000,
+   "debug_check": false
+  },
+  "feasible": true,
+  "k": 20,
+  "initial_cost": 842,
+  "initial_routes": 5,
+  "iters_per_sec": 2446.526367501368,
+  "feasible_iter_fraction": 0.49997275055861357,
+  "perturbations": 59,
+  "tabu_blocked_iters": 0,
+  "move_counts": {
+   "relocate": 36354,
+   "swap": 5102,
+   "2-opt": 13557,
+   "2-opt*A": 10956,
+   "2-opt*B": 7427
+  },
+  "final_lambda": 10.396646341463416,
+  "lambda_init": 2.053658536585366
+ }
+}

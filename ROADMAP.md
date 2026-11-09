@@ -1,6 +1,8 @@
 # Yol Haritası — CMP 3005 Term Project
 
-Son teslim: **13 Aralık 2026 Pazar, 23:59** (Teams). Bugün: 9 Kasım 2026, kalan süre ~5 hafta.
+Son teslim: **13 Aralık 2026 Pazar, 23:59** (Teams).
+
+> **Durum (9 Kasım 2026):** Kod, testler (91), tüm deneyler, figürler, rapor (`report/report.pdf`), Milestone 1 ve slaytlar tamamlandı. Takımın yapması gerekenler: `report/sections/team.typ` ve Ek A (isimler, katkı yüzdeleri), Bölüm 6.5 kişisel yansıma ve AI kullanım beyanını kendi cümlelerinizle yazmak, sözlü savunma hazırlığı.
 
 ## Temel kararlar
 

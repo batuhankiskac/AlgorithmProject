@@ -1,0 +1,46 @@
+{
+ "row": {
+  "instance": "tiny-n9",
+  "n": 9,
+  "algo": "CW",
+  "seed": "",
+  "budget_s": "",
+  "cost": 5965.6259,
+  "bks": 5835.4135139629925,
+  "gap_pct": 2.2314,
+  "runtime_s": 0.0,
+  "time_to_best_s": 0.0,
+  "iterations": 1,
+  "routes": 4,
+  "K": 5,
+  "feasible": true,
+  "cross_arcs": 4,
+  "cross_routes": 2
+ },
+ "routes": [
+  [
+   1
+  ],
+  [
+   2,
+   3,
+   9
+  ],
+  [
+   4,
+   8
+  ],
+  [
+   6,
+   5,
+   7
+  ]
+ ],
+ "history": [
+  [
+   2.562499139457941e-05,
+   5965.625871643296
+  ]
+ ],
+ "extra": {}
+}

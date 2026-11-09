@@ -1,0 +1,76 @@
+{
+ "row": {
+  "instance": "tiny-n7",
+  "n": 7,
+  "algo": "TS",
+  "seed": 83,
+  "budget_s": 2.0,
+  "cost": 3884.4702,
+  "bks": 3884.470245840407,
+  "gap_pct": 0.0,
+  "runtime_s": 2.0,
+  "time_to_best_s": 0.0001,
+  "iterations": 70705,
+  "routes": 3,
+  "K": 4,
+  "feasible": true,
+  "cross_arcs": 4,
+  "cross_routes": 2
+ },
+ "routes": [
+  [
+   2,
+   5
+  ],
+  [
+   1,
+   3,
+   4
+  ],
+  [
+   6,
+   7
+  ]
+ ],
+ "history": [
+  [
+   5.316600436344743e-05,
+   4130.531744306494
+  ],
+  [
+   0.00014512497000396252,
+   3884.4702458404067
+  ]
+ ],
+ "extra": {
+  "params": {
+   "k_neighbours": 20,
+   "tenure_min": 5,
+   "tenure_max": 15,
+   "lambda_init": null,
+   "lambda_delta": 0.5,
+   "stall_iters": null,
+   "perturb_min_frac": 0.1,
+   "perturb_max_frac": 0.25,
+   "resync_every": 1000,
+   "debug_check": false
+  },
+  "feasible": true,
+  "k": 6,
+  "initial_cost": 4130.531744306494,
+  "initial_routes": 3,
+  "iters_per_sec": 35352.20982878652,
+  "feasible_iter_fraction": 0.4565447988119652,
+  "perturbations": 252,
+  "tabu_blocked_iters": 1484,
+  "move_counts": {
+   "relocate": 37911,
+   "swap": 7075,
+   "2-opt": 2902,
+   "2-opt*A": 13262,
+   "2-opt*B": 8071
+  },
+  "final_lambda": 45.90132816657143,
+  "lambda_init": 30.14986674676273
+ }
+}
