@@ -25,10 +25,8 @@ The last four digits of each member's student ID are shown in brackets; they def
 )
 
 *Example prompts* (translated from Turkish):
-+ "Review this assignment document. We have already completed the project. Which part belongs to Milestone 1? Separate it so that we can show only that part, and tell us whether anything in the project is still missing."
++ "What does the instructor ask for in this project? Can you prepare a detailed roadmap?"
 + "Here is the updated version of the assignment. According to it, is anything still missing in our project? List everything."
-+ (to omp) "Go through every bullet of Tasks 1–7 and the Deliverables and check whether the project really satisfies it, citing the file and section that satisfies it."
-// TEAM: you may replace one of these with a prompt you used for design or code help.
 
 *Responsibility.* We did not take the AI's output on trust. We checked it against independent evidence: the parser against the published optimal solutions, every delta formula against full recomputation, the exact DP against brute force, and every reported solution with the independent feasibility checker. All experiments were run by us on our own machine, and the numbers in this report are read directly from those raw results. Every member can explain every part of the code and the report.
 
