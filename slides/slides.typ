@@ -135,9 +135,9 @@
   [#set text(13pt)
   - With $P = 0$: #bos.P0.cross_routes routes cross the strait (#bos.P0.cross_arcs crossing arcs)
   - With $P = 150$: #bos.P150.cross_routes routes cross (#bos.P150.cross_arcs arcs)
-  - Same structure in both: 9 Europe-only + 6 Asia-only routes, no mixed route
+  - $P = 150$ plan: 9 Europe-only + 8 Asia-only routes, no mixed route
   - Depot on the strait $=>$ every route that visits Europe crosses exactly twice
-  - Penalty $= 300 times$ #sym.hash European routes $>= 300 dot ceil(875\/100) = 2700$, and our plans attain this bound
+  - Penalty $= 300 times$ #sym.hash European routes $>= 300 dot ceil(871\/100) = 2700$, and our plan attains this bound
   - Euclidean length: #calc.round(bos.P0.euclid) vs. #calc.round(bos.P150.euclid)
   ])
 ]

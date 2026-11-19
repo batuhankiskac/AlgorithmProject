@@ -70,7 +70,7 @@
     4
    ]
   ],
-  "exact_time_s": 0.0022562500089406967,
+  "exact_time_s": 0.0009672500018496066,
   "method": "Held-Karp + set partition DP"
  }
 }

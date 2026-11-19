@@ -2,7 +2,7 @@
 
 == Which algorithm is better, and why?
 
-Under equal time budgets the *memetic GA is the more robust method*. It reaches the BKS in 38 of 40 benchmark runs, and its MediDrone result is identical in all ten runs. Tabu Search is equally good on instances with $n <= 60$ and finds good solutions very early. On A-n80-k10 and MediDrone, however, it stalls 0.1–0.4% above the GA. We see three reasons in our data:
+Under equal time budgets the *memetic GA is the more robust method*. It reaches the BKS in 38 of 40 benchmark runs, and its ten MediDrone runs end within 0.4% of each other. Tabu Search is equally good on instances with $n <= 60$ and finds good solutions very early. On A-n80-k10 and MediDrone, however, it stalls 0.1–0.4% above the GA. We see three reasons in our data:
 
 + *Global vs. local structure.* OX crossover recombines whole route fragments from two good parents, and Split re-optimises where the routes are cut. TS changes at most two routes per iteration, so moving from one good arrangement of the fleet to a different one takes many deteriorating steps. The arc tabu list with tenure 5–15 only partly enables those steps.
 + *Variance.* TS outcomes depend on which basin the trajectory happens to enter (standard deviation 5.3 on A-n80-k10). A population of 25 solutions hedges against this.
@@ -12,9 +12,9 @@ TS has its own strengths. It is simpler (one solution, no decoder), it is the fa
 
 == How did the Bosphorus penalty change the routes?
 
-Less than we expected, and the reason is instructive. Every plan in @fig:routes and both plans in @fig:bos consist of 15 routes: 9 serve only European clinics, 6 serve only Asian clinics, and *none mixes the two sides*. All 9 European routes cross the strait exactly twice (18 crossing arcs), with $P = 150$ and with $P = 0$ alike. Both plans have almost the same Euclidean length: 12 022 vs. 12 011.
+Less than we expected, and the reason is instructive. The penalty does change the routes, but only a little. Without it ($P = 0$), 10 routes cross the strait (20 crossing arcs); with $P = 150$, 9 routes do (18 arcs), and the Euclidean length rises from 17 200 to 17 217. The $P = 150$ plan in @fig:bos has 9 routes that serve only European clinics, 8 that serve only Asian clinics, and *none mixes the two sides*. The best GA plan in @fig:routes has one mixed route instead.
 
-The explanation is geometric. The depot lies at $x = 500$, which is formally on the Asian side. Every route that visits Europe must cross at least once on the way out and once on the way back. A route visiting both sides also needs only these two crossings (depot $->$ Europe $->$ Asia $->$ depot). Hence, for *any* plan, the penalty equals $2P$ times the number of routes that visit Europe. With a European demand of 875 and $Q = 100$, at least $ceil(875\/100) = 9$ such routes are needed, so the penalty is at least $2 dot 150 dot 9 = 2700$. Our plans attain this bound, as the costs confirm: $14 722.2 - 12 022.2 = 2700$. In our instance the penalty therefore acts as a *fixed cost per European route*. The only incentive it creates is to pack the European clinics into as few, full routes as possible, and the European routes are indeed loaded to 95–100. It would shape the geometry of the routes much more if the depot were far from the strait.
+The explanation is geometric. The depot lies at $x = 500$, which is formally on the Asian side. Every route that visits Europe must cross at least once on the way out and once on the way back. A route visiting both sides also needs only these two crossings (depot $->$ Europe $->$ Asia $->$ depot). Hence, for *any* plan, the penalty equals $2P$ times the number of routes that visit Europe. With a European demand of 871 and $Q = 100$, at least $ceil(871\/100) = 9$ such routes are needed, so the penalty is at least $2 dot 150 dot 9 = 2700$. The $P = 150$ plan attains this bound, as the costs confirm: $19 916.6 - 17 216.6 = 2700$. In our instance the penalty therefore acts as a *fixed cost per European route*. The only incentive it creates is to pack the European clinics into as few, full routes as possible, and the European routes of that plan are indeed loaded to 86–100. It would shape the geometry of the routes much more if the depot were far from the strait.
 
 == Parameter sensitivity
 
@@ -37,11 +37,9 @@ Industry accepts algorithms without guarantees for four reasons:
 
 Guarantees still have practical value. Lower bounds such as the radial bound tell us how far a plan *could* be from optimal, and approximation algorithms make safe fallbacks. In practice the two worlds complement each other.
 
-== Personal reflection
-
-// TEAM: rewrite this section in your own words. It is the "human part" of the report. The points below are what actually happened while building the project.
-*What surprised us most.* Feasibility, not distance, turned out to be the real difficulty. A-n45-k6 is 98.8% full: Clarke–Wright needs 7 vehicles for $K = 6$, and *none* of the random giant tours we sampled had a Split into 6 capacity-feasible routes. The "hidden Bin Packing problem" from the theory section suddenly became a practical obstacle. Allowing overloaded solutions with an adaptive penalty in both metaheuristics solved it. We were also surprised that the Bosphorus penalty did not change the shape of the routes; the depot placement explains it.
-
-*Hardest bug.* Our O(1) delta formulas for intra-route relocation and 2-opt\* were wrong in rare edge cases: inserting a customer right next to its old position, and segments that touch the depot. These cases do not crash anything. The search simply believes a move is better than it is, so the costs drift slowly. We found it by writing a test that compares every delta formula with a full recomputation on thousands of random moves and on an exhaustive list of edge cases. We also added a `debug_check` mode that recomputes the cost after every applied move. A second subtle issue was floating-point drift on the MediDrone instance after hundreds of thousands of incremental updates, so TS now resynchronises its cost every 1000 iterations.
-
-*What we would try next.* A hybrid that uses Tabu Search as the GA's local search, adaptive large neighbourhood search, and time windows: vaccines and blood samples have deadlines, which the "deadlines" in our title would finally deserve. An exact branch-and-cut on our MediDrone instance would also tell us whether the GA's plan is truly optimal.
+// == Personal reflection
+// TEAM: write this section yourselves (assignment, Task 7, "human part").
+// Uncomment the heading above and answer the three questions:
+// *What surprised us most.* ...
+// *Hardest bug.* ... (what it was, and how you found it)
+// *What we would try next.* ... (e.g. hybrid GA + TS, ALNS, time windows)

@@ -1,0 +1,49 @@
+/Users/batuhankiskac/Desktop/AlgorithmProject/experiments/make_figures.py:106: RuntimeWarning: All-NaN slice encountered
+  ax.step(grid, np.nanmedian(np.array(curves), axis=0), where="post", color=COL[algo], lw=2,
+/Users/batuhankiskac/Desktop/AlgorithmProject/experiments/make_figures.py:106: RuntimeWarning: All-NaN slice encountered
+  ax.step(grid, np.nanmedian(np.array(curves), axis=0), where="post", color=COL[algo], lw=2,
+/Users/batuhankiskac/Desktop/AlgorithmProject/experiments/make_figures.py:106: RuntimeWarning: All-NaN slice encountered
+  ax.step(grid, np.nanmedian(np.array(curves), axis=0), where="post", color=COL[algo], lw=2,
+/Users/batuhankiskac/Desktop/AlgorithmProject/experiments/make_figures.py:106: RuntimeWarning: All-NaN slice encountered
+  ax.step(grid, np.nanmedian(np.array(curves), axis=0), where="post", color=COL[algo], lw=2,
+/Users/batuhankiskac/Desktop/AlgorithmProject/experiments/make_figures.py:106: RuntimeWarning: All-NaN slice encountered
+  ax.step(grid, np.nanmedian(np.array(curves), axis=0), where="post", color=COL[algo], lw=2,
+/Users/batuhankiskac/Desktop/AlgorithmProject/experiments/make_figures.py:106: RuntimeWarning: All-NaN slice encountered
+  ax.step(grid, np.nanmedian(np.array(curves), axis=0), where="post", color=COL[algo], lw=2,
+/Users/batuhankiskac/Desktop/AlgorithmProject/experiments/make_figures.py:106: RuntimeWarning: All-NaN slice encountered
+  ax.step(grid, np.nanmedian(np.array(curves), axis=0), where="post", color=COL[algo], lw=2,
+/Users/batuhankiskac/Desktop/AlgorithmProject/experiments/make_figures.py:106: RuntimeWarning: All-NaN slice encountered
+  ax.step(grid, np.nanmedian(np.array(curves), axis=0), where="post", color=COL[algo], lw=2,
+ instance algo       best        mean          std best_gap_pct mean_gap_pct hits_optimum  mean_iterations  all_feasible
+  tiny-n7   CW  4130.5317  4130.53170 0.000000e+00     6.334492       6.3345            0              1.0          True
+  tiny-n7   GA  3884.4702  3884.47020 4.793458e-13    -0.000001          0.0           10            720.4          True
+  tiny-n7   TS  3884.4702  3884.47020 4.793458e-13    -0.000001          0.0           10          71122.8          True
+  tiny-n8   CW  3387.9421  3387.94210 0.000000e+00    -0.000001          0.0            1              1.0          True
+  tiny-n8   GA  3387.9421  3387.94210 0.000000e+00    -0.000001          0.0           10            600.0          True
+  tiny-n8   TS  3387.9421  3387.94210 0.000000e+00    -0.000001          0.0           10          58718.6          True
+  tiny-n9   CW  5965.6259  5965.62590 0.000000e+00     2.231417       2.2314            0              1.0          True
+  tiny-n9   GA  5835.4135  5835.41350 9.586916e-13         -0.0          0.0           10            420.9          True
+  tiny-n9   TS  5835.4135  5835.41350 9.586916e-13         -0.0          0.0           10          38967.6          True
+ A-n32-k5   CW   842.0000   842.00000 0.000000e+00     7.397959        7.398            0              1.0          True
+ A-n32-k5   GA   784.0000   784.00000 0.000000e+00          0.0          0.0           10            725.7          True
+ A-n32-k5   TS   784.0000   784.00000 0.000000e+00          0.0          0.0           10          75873.3          True
+ A-n45-k6   CW   997.0000   997.00000 0.000000e+00     5.614407       5.6144            0              1.0         False
+ A-n45-k6   GA   944.0000   944.00000 0.000000e+00          0.0          0.0           10           1047.4          True
+ A-n45-k6   TS   944.0000   944.00000 0.000000e+00          0.0          0.0           10          62556.3          True
+ A-n60-k9   CW  1408.0000  1408.00000 0.000000e+00     3.988183       3.9882            0              1.0          True
+ A-n60-k9   GA  1354.0000  1354.00000 0.000000e+00          0.0          0.0           10            720.8          True
+ A-n60-k9   TS  1354.0000  1354.00000 0.000000e+00          0.0          0.0           10          48635.1          True
+A-n80-k10   CW  1840.0000  1840.00000 0.000000e+00     4.367555       4.3676            0              1.0          True
+A-n80-k10   GA  1763.0000  1763.40000 9.660918e-01          0.0      0.02269            8            447.4          True
+A-n80-k10   TS  1763.0000  1767.40000 5.295701e+00          0.0      0.24958            1          26931.2          True
+MediDrone   CW 21052.4754 21052.47540 0.000000e+00                                                     1.0          True
+MediDrone   GA 19850.4567 19881.42626 2.842047e+01                                                   508.2          True
+MediDrone   TS 19929.3592 19958.31303 2.187061e+01                                                 37810.8          True
+                      instance                               test  GA_median  TS_median  p_value  n_pairs  TS_better  GA_better  ties
+                      A-n32-k5 Mann-Whitney U (Wilcoxon rank-sum)   784.0000   784.0000 1.000000      NaN        NaN        NaN   NaN
+                      A-n45-k6 Mann-Whitney U (Wilcoxon rank-sum)   944.0000   944.0000 1.000000      NaN        NaN        NaN   NaN
+                      A-n60-k9 Mann-Whitney U (Wilcoxon rank-sum)  1354.0000  1354.0000 1.000000      NaN        NaN        NaN   NaN
+                     A-n80-k10 Mann-Whitney U (Wilcoxon rank-sum)  1763.0000  1766.0000 0.002452      NaN        NaN        NaN   NaN
+                     MediDrone Mann-Whitney U (Wilcoxon rank-sum) 19870.9087 19954.8777 0.000182      NaN        NaN        NaN   NaN
+all (paired by instance, seed)               Wilcoxon signed-rank     0.0000     0.0000 0.000291     50.0        1.0       18.0  31.0
+figures written to /Users/batuhankiskac/Desktop/AlgorithmProject/figures

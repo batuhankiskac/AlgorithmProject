@@ -13,7 +13,7 @@ We solve the Capacitated Vehicle Routing Problem (CVRP) with three algorithms wr
 Instances:
 
 - the CVRPLIB Augerat Set A benchmarks A-n32-k5, A-n45-k6, A-n60-k9 and A-n80-k10;
-- our team MediDrone Istanbul instance: n = 100 customers, Bosphorus-crossing penalty P = 150, seed 6936 + 2546 + 6698 + 4949 = 21129;
+- our team MediDrone Istanbul instance: n = 100 customers, Bosphorus-crossing penalty P = 150, seed 6936 + 2546 + 6698 + 4959 = 21139;
 - three tiny instances whose exact optimum we compute with dynamic programming.
 
 | Deliverable | File |
@@ -77,16 +77,15 @@ results/            raw CSV/JSON results
 figures/            generated plots
 report/             Typst sources of the report and Milestone 1
 slides/             Typst source of the presentation
-docs/               design notes for the GA and the TS
 ```
 
 ## Team seed
 
-`team.json` holds the last four digits of each member's student ID. The MediDrone seed is their sum, each read as a 4-digit number: 6936 + 2546 + 6698 + 4949 = **21129**.
+`team.json` holds the last four digits of each member's student ID. The MediDrone seed is their sum, each read as a 4-digit number: 6936 + 2546 + 6698 + 4959 = **21139**.
 
 ## Rules we follow
 
-- We use no VRP or metaheuristic solver libraries (OR-Tools routing, VROOM, HGS-CVRP, PyVRP, jMetal). Every algorithm is our own implementation. Where an implementation follows published pseudocode (Clarke & Wright 1964; Prins 2004; Vidal et al. 2012; Toth & Vigo 2003; Cordeau et al. 2001), the module docstring says so.
+- We use no VRP or metaheuristic solver libraries (OR-Tools routing, VROOM, HGS-CVRP, PyVRP, jMetal). Every algorithm was implemented by us for this project; AI assistance (Claude Code) is declared in Appendix B of the report. Where an implementation follows published pseudocode (Clarke & Wright 1964; Prins 2004; Vidal et al. 2012; Toth & Vigo 2003; Cordeau et al. 2001), the module docstring says so.
 - The exact ground truth for the tiny instances comes from our own DP; no ILP solver is needed.
 - CVRPLIB distances are rounded to the nearest integer, as CVRPLIB does. `tests/test_core.py` checks that the published optimal solutions evaluate exactly to the BKS.
 - Benchmark files come from CVRPLIB (http://vrp.galgos.inf.puc-rio.br), downloaded through public mirrors (VROOM-Project/vroom-scripts, vidalt/CVRPLIB) because the CVRPLIB site was unreachable.

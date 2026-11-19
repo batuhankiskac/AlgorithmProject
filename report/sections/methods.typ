@@ -23,6 +23,8 @@ and the answer is $V(n)$, with routes recovered from the predecessor of each nod
 
 *Soft capacity.* On tight instances almost no permutation has a capacity-feasible split into $<= K$ routes. We measured 0% of random tours on A-n45-k6 (fill 98.8%) and 22% on A-n80-k10. The GA therefore decodes with a soft layered Split: trips may carry up to $1.5 Q$, and overload costs $lambda$ per unit. $lambda$ is adapted after every generation so that about 40% of the children are feasible (multiplied by 1.2 below 35%, by 0.85 above 45%). This follows Vidal et al.'s penalty idea @vidal2012. The exact hard Split is applied again to every feasible local-search result.
 
+*Fitness.* The fitness of a chromosome $T$ is the cost of its decoded solution, $F(T) = c("Split"(T)) + lambda dot sum_r max(0, L_r - Q)$, where $L_r$ is the load of trip $r$; lower is better. For a capacity-feasible decoding the penalty term is zero, so the fitness is exactly the total distance. Only feasible individuals can become the reported best solution.
+
 *Operators.*
 - *Initial population.* The Clarke–Wright giant tour, 30% *sweep* orders (customers sorted by polar angle around the depot), and random permutations. Clones are rejected.
 - *Selection.* Binary tournament: $O(1)$, mild pressure, no fitness scaling needed.

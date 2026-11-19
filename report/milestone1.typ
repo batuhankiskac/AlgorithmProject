@@ -27,7 +27,6 @@
 
 = Seed calculation and team instance
 Seed $=$ sum of the last four digits of all members' student IDs: *#inst.extra.seed_calculation* → seed #inst.extra.seed.
-// TEAM: put your student IDs into team.json and run `python experiments/make_data.py` again; this line updates automatically.
 
 The instance has $n = #inst.n$ customers in #inst.extra.clusters clusters plus 20 uniformly random customers. Capacity is $Q = #inst.Q$ and $K = ceil(sum q_i \/ Q) + 1 = #inst.K$. Distances are Euclidean plus $P = 150$ when an arc crosses $x = 500$.
 
